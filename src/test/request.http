@@ -1,0 +1,33 @@
+### Read all
+GET {{baseUrl}}/produits
+
+### Read one
+GET {{baseUrl}}/produits/1
+
+### Create one
+POST {{baseUrl}}/produits
+Content-Type: application/json
+
+{
+  "id": 5,
+  "name": "billy",
+  "category": "moche",
+  "price": 0
+}
+
+### Patch one
+PATCH {{baseUrl}}/produits
+Content-Type: application/json
+
+{
+  "id": 5,
+  "name": "billy",
+  "category": "tres moche",
+  "price": 0
+}
+
+### Delete one
+DELETE {{baseUrl}}/produits/5
+
+### Delete all
+DELETE {{baseUrl}}/produits
