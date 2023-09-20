@@ -9,7 +9,6 @@ POST {{baseUrl}}/produits
 Content-Type: application/json
 
 {
-  "id": 5,
   "name": "billy",
   "category": "moche",
   "price": 0
