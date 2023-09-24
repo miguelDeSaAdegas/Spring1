@@ -1,0 +1,118 @@
+openapi: 3.0.3
+info:
+  title: amazing product service
+  description: Microservice handling database of amazing product in amazing project
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Development server
+paths:
+
+  /produits:
+
+    post:
+      summary: Create a product
+      requestBody:
+        description: Product to create
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/product'
+      responses:
+        409:
+          description: Product already exists
+        201:
+          description: Product created
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/product'
+    get:
+      summary: Get all products
+      responses:
+        200:
+          description: Get all products
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/product'
+    delete:
+      summary: Delete all products
+      responses:
+        200:
+          description: All products deleted
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/product'
+    put:
+      summary: Replace one product
+      requestBody:
+        description: Product which will replace
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/product'
+      responses:
+        404:
+          description: Product not found
+        200:
+          description: Product replaced
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/product'
+
+  /produits/{id}:
+    parameters:
+      - name: id
+        in: path
+        description: id of the product
+        required: true
+        schema:
+          type: integer
+          example: 1
+        style: simple
+
+    get:
+      summary: Get one product
+      responses:
+        404:
+          description: Product not found
+        200:
+          description: Get one product
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/product'
+    delete:
+      summary: Delete one product
+      responses:
+        404:
+          description: Product not found
+        200:
+          description: Product deleted
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/product'
+
+components:
+  schemas:
+    product:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: auto-generated id
+        name:
+          type: string
+        category:
+          type: string
+        price:
+          type: integer
+      example:
+        id: 1
+        name: François
+        category: pas cher
+        price: 2

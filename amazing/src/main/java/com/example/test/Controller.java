@@ -58,8 +58,8 @@ public class Controller {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PatchMapping("/produits")
-    public ResponseEntity<AmzoneProduct> patchProduct(@RequestBody AmzoneProduct produit) {
+    @PutMapping("/produits")
+    public ResponseEntity<AmzoneProduct> putProduct(@RequestBody AmzoneProduct produit) {
 
         boolean rep = service.putProduct(produit);
 
