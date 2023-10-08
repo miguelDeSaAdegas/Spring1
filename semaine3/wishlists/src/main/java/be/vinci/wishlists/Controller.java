@@ -1,6 +1,8 @@
 package be.vinci.wishlists;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,10 +21,10 @@ public class Controller {
   }
 
   @GetMapping("/wishlists/user/{pseudo}")
-  public ResponseEntity<Wishlist> getOne(@PathVariable String pseudo) {
-    Wishlist wishlist = service.getOne(pseudo);
+  public ResponseEntity<List<Wishlist>> getOne(@PathVariable String pseudo) {
+    ArrayList<Wishlist> wishlist = service.getOne(pseudo);
 
-    if (wishlist != null) {
+    if (!wishlist.isEmpty()) {
       return new ResponseEntity<>(wishlist, HttpStatus.OK);
     }
 

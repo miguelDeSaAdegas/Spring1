@@ -1,5 +1,8 @@
 package be.vinci.wishlists;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,13 +14,14 @@ public class WishlistService {
     this.repository = repository;
   }
 
-  public Wishlist getOne(String pseudo) {
+  public ArrayList<Wishlist> getOne(String pseudo) {
+    ArrayList<Wishlist> wishlistList = new ArrayList<>();
     for (Wishlist wishlist : repository.findAll()) {
       if (wishlist.getPseudo().equals(pseudo)) {
-        return wishlist;
+        wishlistList.add(wishlist);
       }
     }
-    return null;
+    return wishlistList;
   }
 
   public Boolean deleteProduct(String pseudo, int productId) {
@@ -34,20 +38,18 @@ public class WishlistService {
     for (Wishlist wishlist : repository.findAll()) {
       if (wishlist.getPseudo().equals(pseudo)) {
         repository.delete(wishlist);
-        return true;
       }
     }
-    return false;
+    return true;
   }
 
   public Boolean deleteProducts(int productId) {
     for (Wishlist wishlist : repository.findAll()) {
       if (wishlist.getProductId() == productId) {
         repository.delete(wishlist);
-        return true;
       }
     }
-    return false;
+    return true;
   }
 
   public Wishlist putProductWishlist(String pseudo, int productId) {

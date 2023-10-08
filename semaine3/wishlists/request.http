@@ -1,1 +1,26 @@
+### Ajouter un produit à la wishlist de l'utilisateur
 PUT http://localhost:9003/wishlists/nitroc/1
+
+### Ajouter un produit à la wishlist de l'utilisateur
+PUT http://localhost:9003/wishlists/miguel/1
+
+### Ajouter un produit à la wishlist de l'utilisateur
+PUT http://localhost:9003/wishlists/nitroc/2
+
+### Ajouter un produit à la wishlist de l'utilisateur
+PUT http://localhost:9003/wishlists/miguel/2
+
+### Ajouter un produit à la wishlist de l'utilisateur
+PUT http://localhost:9003/wishlists/nitroc/3
+
+### Supprimer un produit de la wishlist de l'utilisateur
+DELETE http://localhost:9003/wishlists/nitroc/1
+
+### Récupérer les produits de la wishlist de l'utilisateur
+GET http://localhost:9003/wishlists/user/miguel
+
+### Supprimer la wishlist de l'utilisateur
+DELETE http://localhost:9003/wishlists/user/nitroc
+
+### Supprimer le produit de la wishlist de tous les utilisateurs
+DELETE http://localhost:9003/wishlists/product/1
