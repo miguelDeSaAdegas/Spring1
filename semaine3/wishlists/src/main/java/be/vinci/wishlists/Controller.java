@@ -21,11 +21,11 @@ public class Controller {
   }
 
   @GetMapping("/wishlists/user/{pseudo}")
-  public ResponseEntity<List<Wishlist>> getOne(@PathVariable String pseudo) {
-    ArrayList<Wishlist> wishlist = service.getOne(pseudo);
+  public ResponseEntity<List<AmzoneProduct>> getOne(@PathVariable String pseudo) {
+    ArrayList<AmzoneProduct> amzoneProducts = service.getWishlist(pseudo);
 
-    if (!wishlist.isEmpty()) {
-      return new ResponseEntity<>(wishlist, HttpStatus.OK);
+    if (!amzoneProducts.isEmpty()) {
+      return new ResponseEntity<>(amzoneProducts, HttpStatus.OK);
     }
 
     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
