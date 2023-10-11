@@ -11,9 +11,11 @@
         <module name="wishlists" />
         <module name="userService" />
         <module name="productService" />
+        <module name="authentication" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="authentication" target="17" />
       <module name="eurekaService" target="17" />
       <module name="productService" target="17" />
       <module name="userService" target="17" />
@@ -22,6 +24,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="authentication" options="-parameters" />
       <module name="eurekaService" options="-parameters" />
       <module name="productService" options="-parameters" />
       <module name="userService" options="-parameters" />
